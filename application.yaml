@@ -1,0 +1,26 @@
+server:
+  # 负载均衡器的HTTP端口
+  httpPort: 8080
+
+  # 负载均衡器的HTTPS端口（不填则默认不开启HTTPS）
+  httpsPort:
+
+  # 负载均衡器的HTTPS地址，仅在HTTP重定向到HTTPS时使用，填域名
+  httpsAddr: 127.0.0.1
+
+  # 负载均衡器的控制台接口（通过此URI获取/更新负载均衡器本地服务节点列表）
+  consoleApi:
+    # 更新本地服务节点列表
+    set: /console/api/set
+    # 获取本地服务节点列表
+    get: /console/api/get
+
+  # 负载均衡器的SSL证书文件（nginx版）
+  certFile: xxx.pem
+  keyFile: xxx.key
+
+  # 服务节点列表配置文件，从此文件中获取服务节点列表
+  listFile: nodeList.json
+
+  # 负载均衡策略（0：加权随机分配，1：加权轮询分配）
+  policy: 1
