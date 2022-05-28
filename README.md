@@ -37,10 +37,6 @@
 #### 动态更新负载均衡器的本地节点列表
 * 通过控制台接口更新，见下文
 
-***
-
-### 打包方式
-* 终端运行 `go build`
 
 ***
 
@@ -48,7 +44,7 @@
 
 #### 更新负载均衡器的本地服务节点列表
 
-##### 接口URL
+##### 接口URL（接口URL可在配置文件 `application.yaml` 中更改）
 > https://127.0.0.1/console/api/set
 
 ##### 请求方式
@@ -64,7 +60,7 @@
 
 #### 获取负载均衡器的本地服务节点列表
 
-##### 接口URL
+##### 接口URL（接口URL可在配置文件 `application.yaml` 中更改）
 > https://127.0.0.1/console/api/get
 
 ##### 请求方式
@@ -72,3 +68,28 @@
 
 ##### Content-Type
 > form-data
+
+***
+
+### 打包方式
+* 终端运行 `go build`
+* 打包成Linux可执行文件 
+```
+//终端运行
+set GOARCH=amd64
+set GOOS=linux
+go build main.go
+```
+
+***
+
+### 部署方式
+
+* 部署文件夹
+  * fraise 或 fraise.exe `打包好的执行文件`
+  * application.yaml `配置文件`
+  * nodeList.json `服务节点列表文件`
+  * xxx.key `SSL证书文件（nginx），开启https时使用`
+  * xxx.pem `SSL证书文件（nginx），开启https时使用`
+
+Linux后台运行项目：cd到部署文件夹，输入 `setsid ./fraise`
